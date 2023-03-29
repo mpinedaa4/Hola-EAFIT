@@ -1,0 +1,87 @@
+import java.util.Scanner;
+class Main {
+  //espacio para funciones
+  //String usuario = "";
+  //String contrasena = "";
+  public void saludo(){
+    System.out.println("¡Bienvenido a Hola EAFIT!");
+    String respuesta = IO.leerTexto("¿Es tu primera vez usando la aplicación?");
+    if (respuesta.equals("si")){
+      crearNuevoUsuario();
+      crearNuevaContrasena();
+      menuPrincipal();
+    }
+    else if (respuesta.equals("no")){
+      login();
+    }
+    else{
+      System.out.println("Disculpa, no he entendido tu respuesta.");
+      saludo();
+    }
+  }
+  public String crearNuevoUsuario(){
+    String usuario = IO.leerTexto("Ingrese un nombre de usuario: ");
+    return usuario;
+  }
+  public String crearNuevaContrasena(){
+    String contrasena = IO.leerTexto("Ingrese una contraseña: ");
+    return contrasena;
+  }
+  public void login(){
+    String usuarioLogin = IO.leerTexto("Ingrese su nombre de usuario: ");
+    String contrasenaLogin = IO.leerTexto("Ingrese su contraseña: ");
+      menuPrincipal();
+  }
+  public void menuPrincipal(){
+      System.out.println("Hola, ¿Qué necesitas hoy?");
+      System.out.println("1. Buscar un salón");
+      System.out.println("2. ¿Cuál es la temperatura?");
+      System.out.println("3. ¿Qué trabajos tengo?");
+      System.out.println("4. Reuniones pendientes");
+      System.out.println("5. No necesito nada");
+      int tarea= IO.leerNumero("Ingrese el número de su respuesta: ");
+      if(tarea==1){
+        System.out.println("Sigue la siguiente ruta para llegar a tu destino...") ;
+      }
+      else if(tarea==2){
+        System.out.println("La temperatura de hoy es: 29°C.") ;
+      }
+      else if (tarea==3){
+       System.out.println("Tienes 2 trabajos pendientes de programación.");
+      }
+      else if(tarea==4){
+       System.out.println("No tienes reuniones pendientes.");
+      }
+      else if(tarea==3){
+       System.out.println("Está bien, que tengas feliz día.");
+      }
+    }
+
+
+  
+  //función principal
+  public static void main(String[] args) {
+    Main obj = new Main();
+    obj.saludo();
+  }
+  class IO {
+    public static String leerTexto (String msg){
+      Scanner teclado = new Scanner(System.in);
+      System.out.print (msg + " ");
+      String variable = teclado.nextLine();
+      return variable;
+    }
+    public static int leerNumero(String msg){
+      Scanner teclado = new Scanner(System.in);
+      System.out.print(msg + " ");
+      int variable = teclado.nextInt();
+      return variable;
+      }
+    public static double leerFraccion(String msg){
+      Scanner teclado = new Scanner(System.in);
+      System.out.print(msg + " ");
+      double variable = teclado.nextDouble();
+      return variable;
+      }
+  }
+}
