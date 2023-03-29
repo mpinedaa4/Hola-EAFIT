@@ -1,8 +1,6 @@
 import java.util.Scanner;
 class Main {
   //espacio para funciones
-  //String usuario = "";
-  //String contrasena = "";
   public void saludo(){
     System.out.println("¡Bienvenido a Hola EAFIT!");
     String respuesta = IO.leerTexto("¿Es tu primera vez usando la aplicación?");
